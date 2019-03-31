@@ -4,12 +4,13 @@ import './App.css';
 
 class App extends Component {
   render() {
+    const { children } = this.props;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Edit any file and save to reload.
           </p>
           <a
             className="App-link"
@@ -20,6 +21,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        {children}
       </div>
     );
   }
