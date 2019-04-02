@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateTestFormValue } from '../Redux/actions/testFormActions';
+import { updateTestFormValue, submitTestForm } from '../../Redux/actions/testFormActions';
 
 const styles = {
     alignLeft: {
@@ -14,7 +14,7 @@ class ReduxFormSolution extends React.Component {
     }
 
     render() {
-        const { value, updateTestFormValue } = this.props.formState;
+        const { formState: { firstName, lastName, message }, updateTestFormValue, submitTestForm } = this.props;
         return (
         <div style={styles.alignLeft}>
             <h2>
@@ -32,23 +32,32 @@ class ReduxFormSolution extends React.Component {
                 <li>What is the <code>connect()</code> function doing? What does a reducer do? An Action?</li>
                 <li>What did I not do properly on this reducer?</li>
             </ol>
-            <form>
+            <form
+            onSubmit={(e) => {submitTestForm(e, {firstName, lastName})}}
+            >
                 <label htmlFor="firstName">First Name</label>
                 <input 
                 type="text"
                 name="firstName"
-                value={value}
-                onChange={ (e) => {updateTestFormValue(e.target.value)} }
+                value={firstName}
+                onChange={ (e) => {updateTestFormValue(e)} }
                 />
                 <label htmlFor="lastName">Last Name</label>
                 <input 
                 type="text"
                 name="lastName"
+                value={lastName}
+                onChange={ (e) => {updateTestFormValue(e)} }
                 />
                 <input 
                 type="submit"
                 />
             </form>
+            { message.length > 0 ?
+                (<div>
+                    {message}
+                </div>) : ''
+            }
         </div>
         );
     }
@@ -59,7 +68,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-    updateTestFormValue
+    updateTestFormValue,
+    submitTestForm
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReduxFormSolution);

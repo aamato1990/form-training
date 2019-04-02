@@ -1,15 +1,24 @@
-const updateTestFormValue = (value) => {
+const updateTestFormValue = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
     return {
         type: 'UPDATE',
-        payload: value
+        payload: {
+            name,
+            value
+        }
     }
 }
 
-const updateLastNameValue = (value) => {
+const submitTestForm = (e, name) => {
+    e.preventDefault();
+    const message = `Hello, ${name.firstName} ${name.lastName}`;
     return {
-        type: 'UPDATE',
-        payload: value
+        type: 'SUBMIT',
+        payload: {
+            message
+        }
     }
 }
 
-export { updateTestFormValue };
+export { updateTestFormValue, submitTestForm };
