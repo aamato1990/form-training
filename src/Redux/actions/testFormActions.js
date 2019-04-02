@@ -1,12 +1,18 @@
 const updateTestFormValue = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    return {
-        type: 'UPDATE',
-        payload: {
-            name,
-            value
+    if(/^[a-zA-Z]+$/.test(value) || value.length === 0) {
+        return {
+            type: 'UPDATE',
+            payload: {
+                name,
+                value
+            }
         }
+    } else {
+        return {
+            type: 'NO_UPDATE'
+        };
     }
 }
 

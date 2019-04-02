@@ -8,9 +8,6 @@ const styles = {
 };
 
 class ReduxForm extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
 
         return (
@@ -20,7 +17,7 @@ class ReduxForm extends React.Component {
             </h2>
             <ol>
                 <li>
-                Connect this form to its reducer in the store and use redux to control it. Use the action already in your redux folder.<br/>
+                Connect this form to its reducer in the store and use redux to control it. Use the actions already in your redux folder.<br/>
                 (*Hint:
                 <a title="Redux Docs" href="https://react-redux.js.org/using-react-redux/connect-mapstate">Redux Docs MSTP</a>, 
                 <a title="Redux Docs" href="https://react-redux.js.org/using-react-redux/connect-mapdispatch">Redux Docs MDTP</a>)
