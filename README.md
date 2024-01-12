@@ -1,3 +1,5 @@
+This is an app with various ways to handle forms in react.  It was used for lunch and learn training for team members that were newer to react and its various ways to handle forms.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
